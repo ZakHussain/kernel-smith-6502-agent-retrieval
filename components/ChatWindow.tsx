@@ -253,6 +253,7 @@ export function ChatWindow(props: {
     for (let i = 0; i < toolCallMessages.length; i += 2) {
       const aiMessage = toolCallMessages[i];
       const toolMessage = toolCallMessages[i + 1];
+      if (!toolMessage) continue; // Skip if no paired tool message
       intermediateStepMessages.push({
         id: (messagesWithUserReply.length + i / 2).toString(),
         role: "system" as const,
@@ -262,6 +263,7 @@ export function ChatWindow(props: {
         }),
       });
     }
+
     const newMessages = messagesWithUserReply;
     for (const message of intermediateStepMessages) {
       newMessages.push(message);
@@ -327,14 +329,15 @@ export function ChatWindow(props: {
                     <DialogHeader>
                       <DialogTitle>Upload Datasheet(s)</DialogTitle>
                       <DialogDescription>
+                        <p>NOTE: This feature is disabled in this demo. But no worries! I&apos;ve already prepped the RAG system for you.</p>
                         Upload one or more 6502-compatible device datasheets to use for the chat and or code generation.
                       </DialogDescription>
                     </DialogHeader>
-                    <FileUploadComponent
+                    {/* <FileUploadComponent
                       fieldName="Datasheet Upload"
                       maxFiles={5}
                       onUpload={handleFileUpload}
-                    />
+                    /> */}
                   </DialogContent>
                 </Dialog>
               )}

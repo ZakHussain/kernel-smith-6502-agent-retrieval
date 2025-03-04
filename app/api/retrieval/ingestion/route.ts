@@ -10,7 +10,7 @@
 //   },
 // };
 
-// const apiUrl = process.env.NEXT_PUBLIC_SUPABASE_URL; // Accessible on both client and server
+// const apiUrl = process.env.NEXT_PUBLIC_NEXT_PUBLIC_SUPABASE_URL; // Accessible on both client and server
 // const secretKey = process.env.SUPABASE_PRIVATE_KEY;  // Accessible only on the server
 // if (!apiUrl || !secretKey) {
 //   throw new Error("Supabase credentials not found");
@@ -81,6 +81,8 @@ import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 
 const apiUrl = process.env.NEXT_PUBLIC_SUPABASE_URL; // Accessible on both client and server
 const secretKey = process.env.SUPABASE_PRIVATE_KEY;  // Accessible only on the server
+console.log(apiUrl)
+console.log(secretKey)
 if (!apiUrl || !secretKey) {
   throw new Error("Supabase credentials not found");
 }
